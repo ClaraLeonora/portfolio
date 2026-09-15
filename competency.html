@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Competency · Clara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=17">
+<script src="js/data.js?v=17"></script>
+<script src="js/expand.js?v=17"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="top">
+  <a class="mark" href="index.html">Clara</a>
+  <nav aria-label="Primary">
+    <a href="about.html">About</a>
+    <a href="work.html">Work</a>
+    <a href="index.html#capstone">Capstone</a>
+    <a href="index.html#research">Research</a>
+    <a href="index.html#global">Global</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="narrow" style="padding-top:140px;">
+  <div class="section-label">Grand Challenges Scholars Program</div>
+  <a class="detail-back" href="index.html">&#8592; All competencies</a>
+  <div class="detail-head">
+    <div class="detail-icon" id="detailIcon" aria-hidden="true"></div>
+    <h1 id="detailTitle"></h1>
+  </div>
+  <ul class="detail-list" id="detailList"></ul>
+</section>
+</main>
+
+<div class="subpage-footer">
+  <a class="link" href="index.html">&#8592; Back to home</a>
+</div>
+
+<script>
+(function(){
+  var key = 'talent';
+  var m = window.location.search.match(/[?&]c=([^&]+)/);
+  if(m){ key = decodeURIComponent(m[1]); }
+  var c = null;
+  for(var i=0;i<COMP_DATA.length;i++){ if(COMP_DATA[i].key === key){ c = COMP_DATA[i]; break; } }
+  if(!c){ c = COMP_DATA[0]; }
+
+  document.title = c.title + ' · Clara';
+  var iconEl = document.getElementById('detailIcon');
+  iconEl.innerHTML = ICONS[c.key];
+  iconEl.style.background = COLOR_BY_KEY[c.key];
+  iconEl.style.color = '#fff';
+  document.getElementById('detailTitle').textContent = c.title;
+  function linksOf(it){
+    if(it.links) return it.links;
+    if(it.link) return [{ label:'View', href:it.link }];
+    return [];
+  }
+  function briefLabel(text){
+    var words = text.replace(/["“”]/g, '').split(' ').slice(0, 8).join(' ');
+    return words + (words.length < text.length ? '…' : '');
+  }
+
+  var list = document.getElementById('detailList');
+  list.innerHTML = c.items.map(function(it, idx){
+    var links = linksOf(it);
+    var expandable = !!(it.image || it.expand);
+    var slot = expandable
+      ? '<span class="d-link">View &#8599;</span>'
+      : (links.length ? '<a class="d-link" href="'+links[0].href+'" target="_blank" rel="noopener" aria-label="View: '+briefLabel(it.t)+' (opens in a new tab)">View &#8599;</a>' : '<span class="d-link"></span>');
+    return '<li'+(expandable ? ' class="expandable" tabindex="0" role="button" aria-haspopup="dialog" data-idx="'+idx+'"' : '')+'>'+
+      '<span class="d">'+it.d+'</span><div><p class="d-title">'+it.title+'</p><p class="d-desc">'+it.t+'</p></div>'+slot+'</li>';
+  }).join('');
+
+  Array.prototype.forEach.call(list.querySelectorAll('li.expandable'), function(li){
+    var it = c.items[+li.getAttribute('data-idx')];
+    var open = function(){
+      window.openExpandCard(li, it.abstract
+        ? { date:it.d, title:it.title, label:'Abstract', desc:it.abstract, links:linksOf(it) }
+        : { date:it.d, title:it.title, desc:it.t, image:it.image, links:linksOf(it), color:COLOR_BY_KEY[c.key], icon:ICONS[c.key] });
+    };
+    li.addEventListener('click', open);
+    li.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); } });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work · Clara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=17">
+<script src="js/data.js?v=17"></script>
+<script src="js/expand.js?v=17"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="top">
+  <a class="mark" href="index.html">Clara</a>
+  <nav aria-label="Primary">
+    <a href="about.html">About</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="index.html#capstone">Capstone</a>
+    <a href="index.html#research">Research</a>
+    <a href="index.html#global">Global</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+<section style="padding-top:140px;">
+  <h1 class="section-label">Research &amp; work</h1>
+  <div class="work-grid" id="workGrid"></div>
+</section>
+</main>
+
+<div class="subpage-footer">
+  <a class="link" href="index.html">&#8592; Back to home</a>
+</div>
+
+<script>
+(function(){
+  var grid = document.getElementById('workGrid');
+
+  function linksOf(item){
+    if(item.links) return item.links;
+    if(item.link) return [{ label:'View source', href:item.link }];
+    return [];
+  }
+
+  WORK_DATA.forEach(function(item){
+    var row = document.createElement('div');
+    row.className = 'work-row';
+    var links = linksOf(item);
+    var expandable = !!(item.image || item.expand);
+
+    var html = '<div class="date">'+item.date+'</div><div><p class="role">'+item.role+'</p><p class="desc">'+item.desc+'</p>';
+    if(!expandable && links.length){
+      html += '<p class="row-links">'+links.map(function(l){
+        return '<a class="row-link" href="'+l.href+'" target="_blank" rel="noopener">'+l.label+' &#8599;<span class="sr-only"> (opens in a new tab)</span></a>';
+      }).join('')+'</p>';
+    }
+    html += '</div>';
+    html += expandable ? '<span class="view-link">View &#8599;</span>' : '<span class="view-link"></span>';
+    row.innerHTML = html;
+
+    if(expandable){
+      row.classList.add('expandable');
+      row.tabIndex = 0;
+      row.setAttribute('role', 'button');
+      row.setAttribute('aria-haspopup', 'dialog');
+      var open = function(){
+        window.openExpandCard(row, item.abstract
+          ? { date:item.date, title:item.role, label:'Abstract', desc:item.abstract, links:links }
+          : { date:item.date, title:item.role, desc:item.desc, image:item.image, links:links });
+      };
+      row.addEventListener('click', open);
+      row.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); } });
+    }
+
+    grid.appendChild(row);
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=17">
+<script src="js/data.js?v=17"></script>
+<script src="js/expand.js?v=17"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="top">
+  <a class="mark" href="index.html">Clara</a>
+  <nav aria-label="Primary">
+    <a href="about.html">About</a>
+    <a href="work.html">Work</a>
+    <a href="#capstone">Capstone</a>
+    <a href="#research">Research</a>
+    <a href="#global">Global</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+<div class="globe-wrapper" id="globeWrapper">
+  <div class="globe-pin">
+    <div class="globe-hero-text" id="globeHeroText">
+      <div class="hi"><a href="https://gcspnetwork.org" target="_blank" rel="noopener">GCSP<span class="sr-only"> (opens in a new tab)</span></a> · <a href="https://www.nae.edu/57315/VIDEO-Theme-Joy-of-Living" target="_blank" rel="noopener">Joy of Living<span class="sr-only"> (opens in a new tab)</span></a> · <a href="https://www.nae.edu/File.aspx?id=187214" target="_blank" rel="noopener">Advance Personalized Learning<span class="sr-only"> (opens in a new tab)</span></a></div>
+      <h1>A global engineer, advancing personalized learning.</h1>
+      <p>Grand Challenges Scholar researching intelligent tutoring systems.</p>
+    </div>
+
+    <div class="globe-system" id="globeSystem">
+      <div class="globe-circle" id="globeCircle">
+        <div class="globe-spin" id="globeSpin">
+          <img class="globe-face globe-face-a" src="img/globe-east.png" alt="Earth, Eastern hemisphere">
+          <img class="globe-face globe-face-b" src="img/globe-west.png" alt="Earth, Western hemisphere">
+        </div>
+        <div class="globe-shade"></div>
+      </div>
+
+      <svg class="orbit-ring" aria-hidden="true" viewBox="0 0 660 372" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="330" cy="186" rx="318" ry="174" fill="none" stroke="rgba(32,31,43,0.18)" stroke-width="1.4" stroke-dasharray="2 9" transform="rotate(-12 330 186)"/>
+      </svg>
+
+      <!-- orbit nodes injected here by JS -->
+    </div>
+
+    <div class="globe-shadow-ellipse"></div>
+    <div class="comp-hint" id="compHint">Click a competency to see the work behind it</div>
+    <div class="comp-list-mobile" id="compListMobile"></div>
+
+    <div class="scroll-hint" id="scrollHint">scroll to orbit<span class="arrow">&#8595;</span></div>
+  </div>
+</div>
+
+<section id="capstone" class="narrow">
+  <h2 class="section-label pop">Senior design · in progress</h2>
+  <div class="spotlight pop" id="spotlight">
+    <h3>AKDOT seismic bridge assessment tool</h3>
+    <p>Software engineer on a five-person NC State capstone team (CSC 492), building a full-stack risk-assessment tool for the Alaska Department of Transportation &amp; Public Facilities, translating MATLAB seismic-assessment algorithms into Python.</p>
+    <div class="meta">
+      <span>Team of <b>5</b></span>
+      <span>Sep 2026 · <b>ongoing</b></span>
+      <span>Interdisciplinary</span>
+    </div>
+    <svg class="bridge" aria-hidden="true" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="70" width="180" height="5" fill="#223a5e"/>
+      <rect x="30" y="20" width="5" height="60" fill="#223a5e"/>
+      <rect x="165" y="20" width="5" height="60" fill="#223a5e"/>
+      <line x1="32" y1="20" x2="10" y2="70" stroke="#223a5e" stroke-width="2"/>
+      <line x1="32" y1="20" x2="60" y2="70" stroke="#223a5e" stroke-width="2"/>
+      <line x1="167" y1="20" x2="190" y2="70" stroke="#223a5e" stroke-width="2"/>
+      <line x1="167" y1="20" x2="140" y2="70" stroke="#223a5e" stroke-width="2"/>
+    </svg>
+  </div>
+</section>
+
+<section id="research">
+  <h2 class="section-label pop">Research</h2>
+  <div class="research-grid" id="researchGrid"></div>
+</section>
+
+<section id="global">
+  <h2 class="section-label pop">Global experience</h2>
+  <div class="globe-tiles" id="globeTiles"></div>
+</section>
+
+<section id="gcsp" class="narrow">
+  <h2 class="section-label pop">About the program</h2>
+  <div class="gcsp-intro pop">
+    <p>The Grand Challenges Scholars Program is a National Academy of Engineering initiative that prepares engineering students to take on society's toughest problems through research, global and entrepreneurial experience, and service learning. My academic focus sits within GCSP's Joy of Living theme, under the challenge of Advancing Personalized Learning, building AI-driven systems that make education more individualized and accessible.</p>
+    <ul class="gcsp-explore">
+      <li><a class="link" href="https://gcspnetwork.org" target="_blank" rel="noopener">GCSP Network<span class="sr-only"> (opens in a new tab)</span></a><span>The national program network connecting Grand Challenges Scholars across universities.</span></li>
+      <li><a class="link" href="https://www.nae.edu/57315/VIDEO-Theme-Joy-of-Living" target="_blank" rel="noopener">Joy of Living theme<span class="sr-only"> (opens in a new tab)</span></a><span>National Academy of Engineering overview video.</span></li>
+      <li><a class="link" href="https://www.nae.edu/File.aspx?id=187214" target="_blank" rel="noopener">Advancing Personalized Learning<span class="sr-only"> (opens in a new tab)</span></a><span>NAE report, pp. 45–47.</span></li>
+      <li><a class="link" href="https://www.nae.edu/20782/grand-challenges-project" target="_blank" rel="noopener">NAE Grand Challenges Project<span class="sr-only"> (opens in a new tab)</span></a><span>The initiative GCSP is built on.</span></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="pop footer-grid">
+    <div class="footer-main">
+      <h2 class="section-label">Contact</h2>
+      <h3>Let's talk.</h3>
+      <p class="fp">Open to research collaborations and engineering roles building personalized, AI-driven learning systems: the work at the center of my Grand Challenge, Advance Personalized Learning.</p>
+      <div class="contact-links">
+        <a class="link" href="mailto:dgdimarc@ncsu.edu">dgdimarc@ncsu.edu</a>
+        <a class="link" href="https://www.linkedin.com/in/claraleonora/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="link" href="https://github.com/ClaraLeonora" target="_blank" rel="noopener">GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+      <div class="fine">Clara · <a class="link" href="https://csc.ncsu.edu" target="_blank" rel="noopener">NC State University Department of Computer Science<span class="sr-only"> (opens in a new tab)</span></a> · updated 2026</div>
+    </div>
+    <div class="footer-docs" id="documents">
+      <h2 class="section-label">Documents</h2>
+      <div class="doc-links">
+        <a class="doc-link" href="documents/cv.pdf" download>
+          <span class="doc-link-title">Curriculum Vitae ↓</span>
+          <span class="doc-link-sub">PDF</span>
+        </a>
+        <a class="doc-link" href="documents/resume.pdf" download>
+          <span class="doc-link-title">Resume ↓</span>
+          <span class="doc-link-sub">PDF</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- research grid ---------- */
+(function(){
+  var grid = document.getElementById('researchGrid');
+  if(!grid) return;
+  RESEARCH_DATA.forEach(function(item){
+    var card = document.createElement('div');
+    card.className = 'research-card pop';
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-haspopup', 'dialog');
+    card.innerHTML = '<div class="rdate">'+item.date+'</div>' +
+      '<h3>'+item.title+'</h3>' +
+      '<p>'+item.desc+'</p>' +
+      '<div class="rvenue">'+item.venue+'</div>';
+    var open = function(){
+      window.openExpandCard(card, item.abstract
+        ? { date:item.date, title:item.title, label:'Abstract', desc:item.abstract, links:item.links || [] }
+        : { date:item.date, title:item.title, desc:item.desc, image:item.image, links:item.links || [] });
+    };
+    card.addEventListener('click', open);
+    card.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); } });
+    grid.appendChild(card);
+  });
+})();
+
+/* ---------- global experience tiles ---------- */
+(function(){
+  var wrap = document.getElementById('globeTiles');
+  if(!wrap) return;
+  GLOBAL_DATA.forEach(function(item){
+    var tile = document.createElement('div');
+    tile.className = 'globe-tile pop';
+    tile.tabIndex = 0;
+    tile.setAttribute('role', 'button');
+    tile.setAttribute('aria-haspopup', 'dialog');
+    tile.innerHTML = '<div class="globe-tile-art"><img src="'+item.cover+'" alt="'+item.title+'"></div>' +
+      '<div class="globe-tile-body"><h3>'+item.title+'</h3><p>'+item.caption+'</p></div>';
+    var open = function(){
+      window.openExpandCard(tile, { title:item.title, desc:item.desc, image:item.image, links:item.links || [] });
+    };
+    tile.addEventListener('click', open);
+    tile.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); } });
+    wrap.appendChild(tile);
+  });
+})();
+
+/* ---------- pop-in on scroll ---------- */
+(function(){
+  var els = document.querySelectorAll('.pop');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold:0.15 });
+    Array.prototype.forEach.call(els, function(el){ io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(els, function(el){ el.classList.add('in'); });
+  }
+})();
+
+/* ---------- capstone tilt ---------- */
+(function(){
+  var card = document.getElementById('spotlight');
+  if(!card) return;
+  card.addEventListener('mousemove', function(e){
+    var r = card.getBoundingClientRect();
+    var px = (e.clientX-r.left)/r.width - 0.5;
+    var py = (e.clientY-r.top)/r.height - 0.5;
+    card.style.transform = 'perspective(900px) rotateY('+(px*4)+'deg) rotateX('+(-py*4)+'deg)';
+  });
+  card.addEventListener('mouseleave', function(){
+    card.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg)';
+  });
+})();
+
+/* ---------- orbit (desktop/tablet): build nodes, front-to-back depth, scroll-driven angle ---------- */
+(function(){
+  var globeSystem = document.getElementById('globeSystem');
+  var globeFaceA = document.querySelector('.globe-face-a');
+  var globeFaceB = document.querySelector('.globe-face-b');
+  var N = COMP_DATA.length;
+
+  var nodes = COMP_DATA.map(function(c){
+    var a = document.createElement('a');
+    a.className = 'orbit-node ' + CLASS_BY_KEY[c.key];
+    a.href = 'competency.html?c=' + c.key;
+    a.setAttribute('aria-label', c.title);
+    a.innerHTML = '<img class="planet-art" src="' + IMG_BY_KEY[c.key] + '" alt="">' +
+      '<span class="cap">' + c.title + '</span>';
+    globeSystem.appendChild(a);
+    return a;
+  });
+
+  var TILT = -12 * Math.PI/180;
+  var cosT = Math.cos(TILT), sinT = Math.sin(TILT);
+
+  function positionNodes(scrollAngleDeg){
+    var w = globeSystem.offsetWidth;
+    var radiusX = w/2 + 150;
+    var radiusY = radiusX * 0.55;
+    for(var i=0;i<N;i++){
+      var deg = -90 + i * (360/N) + scrollAngleDeg;
+      var a = deg * Math.PI/180;
+      var depth = Math.sin(a);
+      var localX = radiusX * Math.cos(a);
+      var localY = radiusY * depth;
+      var x = localX*cosT - localY*sinT;
+      var y = localX*sinT + localY*cosT;
+      var scale = 0.8 + (depth+1)/2 * 0.4;
+      var opacity = 0.55 + (depth+1)/2 * 0.45;
+      var z = depth > 0 ? 5 : 2;
+      nodes[i].style.transform = 'translate(' + x.toFixed(2) + 'px,' + y.toFixed(2) + 'px) scale(' + scale.toFixed(3) + ')';
+      nodes[i].style.opacity = opacity.toFixed(2);
+      nodes[i].style.zIndex = z;
+    }
+    if(globeFaceA && globeFaceB){
+      var rad = scrollAngleDeg * Math.PI/180;
+      var t = (1 + Math.cos(rad)) / 2;
+      globeFaceA.style.opacity = t.toFixed(3);
+      globeFaceB.style.opacity = (1 - t).toFixed(3);
+    }
+  }
+  window.__setOrbitAngle = positionNodes;
+  positionNodes(0);
+})();
+
+/* ---------- static competency list (narrow screens) ---------- */
+(function(){
+  var list = document.getElementById('compListMobile');
+  if(!list) return;
+  COMP_DATA.forEach(function(c){
+    var a = document.createElement('a');
+    a.className = 'comp-list-item ' + CLASS_BY_KEY[c.key];
+    a.href = 'competency.html?c=' + c.key;
+    a.innerHTML = ICONS[c.key] + '<span>' + c.title + '</span>';
+    var icon = a.querySelector('svg');
+    if(icon) icon.setAttribute('aria-hidden', 'true');
+    list.appendChild(a);
+  });
+})();
+
+/* ---------- globe orbit angle (ambient rotation + scroll boost) + hero fade ---------- */
+(function(){
+  var wrapper = document.getElementById('globeWrapper');
+  var heroText = document.getElementById('globeHeroText');
+  var scrollHint = document.getElementById('scrollHint');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+
+  var inView = true;
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){ inView = entries[0].isIntersecting; }, { threshold:0 }).observe(wrapper);
+  }
+
+  var autoAngle = 0, lastT = null;
+
+  function frame(t){
+    if(lastT === null) lastT = t;
+    var dt = (t - lastT) / 1000;
+    lastT = t;
+
+    if(document.visibilityState !== 'hidden' && inView){
+      if(!reduceMotion){ autoAngle += dt * 5; }
+
+      var rect = wrapper.getBoundingClientRect();
+      var total = wrapper.offsetHeight - window.innerHeight;
+      var scrolled = -rect.top;
+      var progress = total > 0 ? clamp(scrolled/total, 0, 1) : 0;
+
+      if(window.__setOrbitAngle){ window.__setOrbitAngle(autoAngle + progress * 320); }
+
+      var textOpacity = 1 - clamp(progress/0.4, 0, 1);
+      heroText.style.opacity = textOpacity;
+      scrollHint.style.opacity = 1 - clamp(progress/0.15, 0, 1);
+    }
+
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+
+</body>
+</html>
