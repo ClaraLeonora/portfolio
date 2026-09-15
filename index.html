@@ -6,9 +6,9 @@
 <title>Clara</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=17">
-<script src="js/data.js?v=17"></script>
-<script src="js/expand.js?v=17"></script>
+<link rel="stylesheet" href="css/style.css?v=21">
+<script src="js/data.js?v=21"></script>
+<script src="js/expand.js?v=21"></script>
 </head>
 <body>
 
@@ -282,7 +282,10 @@
   var wrapper = document.getElementById('globeWrapper');
   var heroText = document.getElementById('globeHeroText');
   var scrollHint = document.getElementById('scrollHint');
+  var globeFaceA = document.querySelector('.globe-face-a');
+  var globeFaceB = document.querySelector('.globe-face-b');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var MOBILE_BP = 880; // matches the breakpoint where the orbit planets switch to the static list
 
   function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
 
@@ -291,22 +294,35 @@
     new IntersectionObserver(function(entries){ inView = entries[0].isIntersecting; }, { threshold:0 }).observe(wrapper);
   }
 
-  var autoAngle = 0, lastT = null;
+  var autoAngle = 0, lastT = null, staticEarthSet = false;
 
   function frame(t){
     if(lastT === null) lastT = t;
     var dt = (t - lastT) / 1000;
     lastT = t;
 
+    var mobile = window.innerWidth <= MOBILE_BP;
+
+    if(mobile){
+      // keep the globe static on phone-sized screens: freeze on one hemisphere instead of spinning
+      if(!staticEarthSet && globeFaceA && globeFaceB){
+        globeFaceA.style.opacity = 1;
+        globeFaceB.style.opacity = 0;
+        staticEarthSet = true;
+      }
+    } else {
+      staticEarthSet = false;
+    }
+
     if(document.visibilityState !== 'hidden' && inView){
-      if(!reduceMotion){ autoAngle += dt * 5; }
+      if(!reduceMotion && !mobile){ autoAngle += dt * 5; }
 
       var rect = wrapper.getBoundingClientRect();
       var total = wrapper.offsetHeight - window.innerHeight;
       var scrolled = -rect.top;
       var progress = total > 0 ? clamp(scrolled/total, 0, 1) : 0;
 
-      if(window.__setOrbitAngle){ window.__setOrbitAngle(autoAngle + progress * 320); }
+      if(window.__setOrbitAngle && !mobile){ window.__setOrbitAngle(autoAngle + progress * 320); }
 
       var textOpacity = 1 - clamp(progress/0.4, 0, 1);
       heroText.style.opacity = textOpacity;

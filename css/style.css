@@ -340,6 +340,7 @@ footer .contact-links{ display:flex; gap:28px; flex-wrap:wrap; margin-top:28px; 
   .globe-circle{ width:220px; height:220px; }
   .orbit-node, .orbit-ring{ display:none; }
   .comp-hint{ display:none; }
+  .scroll-hint{ display:none; }
   .comp-list-mobile{
     display:flex; flex-wrap:wrap; gap:10px;
     width:100%; max-width:360px; margin-top:28px; position:relative; z-index:2;
@@ -349,4 +350,28 @@ footer .contact-links{ display:flex; gap:28px; flex-wrap:wrap; margin-top:28px; 
 @media (max-width: 480px){
   .globe-hero-text h1{ font-size:1.6rem; }
   .globe-hero-text p{ font-size:13px; }
+}
+
+/* ---------- PHONE: nav wrapping + readability (does not affect tablet/desktop) ---------- */
+@media (max-width: 600px){
+  header.top{
+    flex-wrap:wrap; justify-content:center; row-gap:8px;
+    padding:14px 16px; text-align:center;
+  }
+  header.top .mark{ width:100%; }
+  header.top nav{
+    width:100%; flex-wrap:wrap; justify-content:center; row-gap:6px; column-gap:14px;
+  }
+  header.top nav a{ font-size:12.5px; }
+  section{ padding-top:128px; }
+  .globe-pin{ justify-content:flex-start; padding-top:120px; box-sizing:border-box; }
+  .spotlight{ padding:26px; }
+  .spotlight .meta{ gap:16px; }
+  footer{ padding:90px 24px 70px; }
+  footer h3{ font-size:1.9rem; }
+  .footer-grid{ gap:40px; }
+}
+@media (max-width: 360px){
+  header.top nav{ column-gap:9px; }
+  header.top nav a{ font-size:10.5px; }
 }
