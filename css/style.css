@@ -336,6 +336,9 @@ footer .contact-links{ display:flex; gap:28px; flex-wrap:wrap; margin-top:28px; 
   section{ padding:90px 24px 80px; }
   header.top{ padding:20px 22px; }
   header.top nav{ gap:16px; }
+  /* no scroll-driven orbit on mobile: drop the tall sticky scroll track so the hero is one screen */
+  .globe-wrapper{ height:auto; }
+  .globe-pin{ position:relative; height:auto; padding:120px 0 40px; box-sizing:border-box; }
   .globe-system{ width:220px; height:220px; margin-top:50px; }
   .globe-circle{ width:220px; height:220px; }
   .orbit-node, .orbit-ring{ display:none; }
@@ -364,7 +367,13 @@ footer .contact-links{ display:flex; gap:28px; flex-wrap:wrap; margin-top:28px; 
   }
   header.top nav a{ font-size:12.5px; }
   section{ padding-top:128px; }
-  .globe-pin{ justify-content:flex-start; padding-top:120px; box-sizing:border-box; }
+  /* hero is one static screen: heading, globe and buttons all fit, with breathing room below the buttons */
+  .globe-pin{ justify-content:center; min-height:100svh; padding:90px 20px 44px; box-sizing:border-box; }
+  .globe-system{ width:min(180px, 22svh); height:min(180px, 22svh); margin-top:20px; }
+  .globe-circle{ width:100%; height:100%; }
+  .globe-shadow-ellipse{ width:min(150px, 18svh); height:16px; margin-top:12px; }
+  .comp-list-mobile{ margin-top:22px; }
+  .comp-list-item{ padding:10px 12px; }
   .spotlight{ padding:26px; }
   .spotlight .meta{ gap:16px; }
   footer{ padding:90px 24px 70px; }
